@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- HEAD PART -->
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>My Portfolio</title>
+
+		<!-- Bootstrap 5 CSS -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<!-- Font Awesome -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+		/>
+
+		<!-- Google Fonts -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="./style.css" />
+	</head>
+
+	<body>
+		<!-- Header -->
+		<div id="header">
+			<div class="container">
+				<nav>
+					<a href="#"
+						><img src="/assets/name.png" class="logo-nav" alt="Logo"
+					/></a>
+					<ul>
+						<li><a href="#header">Home</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#services">Services</a></li>
+						<li><a href="#portfolio">Portfolio</a></li>
+						<li><a href="#contact">Contact</a></li>
+						<li>
+							<a
+								href="./assets/resume.pdf"
+								target="_blank"
+								class="btn-sm btn-purple"
+								>Resume</a
+							>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+		<!-- Responsive Navigation -->
+		<div class="res-nav">
+			<nav>
+				<div class="contents">
+					<button onclick="hideNav()" class="btn btn-purple">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							height="26px"
+							viewBox="0 -960 960 960"
+							width="26px"
+							fill="#fff"
+						>
+							<path
+								d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+							/>
+						</svg>
+					</button>
+					<a href="#about-me" class="res-nav-text">About Me</a>
+					<a href="#my-projects" class="res-nav-text">My Projects</a>
+					<a href="#testimonials" class="res-nav-text">Testimonials</a>
+					<a href="#contact-me" class="res-nav-text">Contact Me</a>
+				</div>
+			</nav>
+		</div>
+
+		<!-- Hero Section -->
+		<section id="hero" class="gradient-background">
+			<div class="container col-xxl-8 px-0 py-5">
+				<div class="row flex-lg-row-reverse align-items-center g-5 py-5 mx-3">
+					<div class="col-10 col-sm-8 col-lg-6">
+						<img
+							src="./assets/picmix.com_1915138.png"
+							class="img-fluid butterfly"
+							alt="Profile image"
+						/>
+					</div>
+					<div class="col-lg-6">
+						<h1 class="intro">
+							Hi, I'm <span class="name">Sanskriti</span> From Kanpur.
+						</h1>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- About Section -->
+		<section id="about-me">
+			<div class="container mt-5">
+				<h1 class="head">About Me.</h1>
+				<img src="./assets/girl.jpeg" alt="my image" />
+				<p class="hello">Hello.</p>
+				<p>
+					My name is Sanskriti Gupta. I'm a Web Developer currently contributing
+					in bettering the world, I ❤️ coffee and brew my own beers.
+				</p>
+				<p>Currently pursuing a degree.</p>
+			</div>
+		</section>
+
+		<!-- Projects -->
+		<section id="my-projects" class="py-5 bg-dark text-light">
+			<div class="container">
+				<h2 class="text-center mb-5 fw-bold display-5">My Projects</h2>
+				<div class="row g-4 justify-content-center">
+					<!-- Project Card -->
+					<div class="col-md-6 col-lg-4">
+						<div class="card project-card h-100 shadow-lg border-0">
+							<img
+								src="./assets/cinetrack.PNG"
+								class="card-img-top"
+								alt="CineTrack Screenshot"
+							/>
+							<div class="card-body">
+								<h5 class="card-title fw-semibold">CineTrack</h5>
+								<p class="card-text">
+									A dynamic movie tracking app with a slick UI, using JavaScript
+									and an external movie API.
+								</p>
+							</div>
+							<div class="card-footer bg-transparent border-0">
+								<a
+									href="https://cinetrackmovie.netlify.app/"
+									class="btn btn-purple w-100"
+									target="_blank"
+									>Visit Site</a
+								>
+							</div>
+						</div>
+					</div>
+
+					<!-- Memory Flip Game -->
+					<div class="col-md-6 col-lg-4">
+						<div class="card project-card h-100 shadow-lg border-0">
+							<img
+								src="./assets/memory-card.PNG"
+								class="card-img-top"
+								alt="Memory Flip Game Screenshot"
+							/>
+							<div class="card-body">
+								<h5 class="card-title fw-semibold">Memory Flip Game</h5>
+								<p class="card-text">
+									Test your memory in this fun card-matching game with smooth
+									animations and responsive UI.
+								</p>
+							</div>
+							<div class="card-footer bg-transparent border-0">
+								<a
+									href="https://sanskriti49.github.io/matching-cards-memory-game/"
+									class="btn btn-purple w-100"
+									target="_blank"
+									>Play Now</a
+								>
+							</div>
+						</div>
+					</div>
+
+					<!-- Pizzalicious -->
+					<div class="col-md-6 col-lg-4">
+						<div class="card project-card h-100 shadow-lg border-0">
+							<img
+								src="./assets/pizzalicious.PNG"
+								class="card-img-top"
+								alt="Pizzalicious Screenshot"
+							/>
+							<div class="card-body">
+								<h5 class="card-title fw-semibold">Pizzalicious</h5>
+								<p class="card-text">
+									A fun, interactive pizza-themed site with engaging UI and
+									custom CSS animations.
+								</p>
+							</div>
+							<div class="card-footer bg-transparent border-0">
+								<a
+									href="https://pizzaliciousss.netlify.app"
+									class="btn btn-purple w-100"
+									target="_blank"
+									>Explore Site</a
+								>
+							</div>
+						</div>
+					</div>
+
+					<!-- Simon Game -->
+					<div class="col-md-6 col-lg-4">
+						<div class="card project-card h-100 shadow-lg border-0">
+							<img
+								src="./assets/Capture3.PNG"
+								class="card-img-top"
+								alt="Simon Game Screenshot"
+							/>
+							<div class="card-body">
+								<h5 class="card-title fw-semibold">Simon Memory Game</h5>
+								<p class="card-text">
+									Classic memory challenge where you repeat sequences. Built
+									using HTML, CSS & JavaScript.
+								</p>
+							</div>
+							<div class="card-footer bg-transparent border-0">
+								<a
+									href="https://sanskriti49.github.io/Simon-Game/"
+									class="btn btn-purple w-100"
+									target="_blank"
+									>Try It Out</a
+								>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Testimonials -->
+
+		<section id="testimonials" class="testimonials-section-purple">
+			<div class="container py-5">
+				<!-- Section Header -->
+				<div class="row text-center mb-5">
+					<div class="col-12">
+						<p class="section-subtitle">Testimonials</p>
+						<h2 class="section-title">What My Clients Say</h2>
+					</div>
+				</div>
+
+				<!-- Carousel -->
+				<div
+					id="testimonialCarousel"
+					class="carousel slide"
+					data-bs-ride="carousel"
+					data-bs-interval="5000"
+				>
+					<!-- Carousel Indicators -->
+					<div class="carousel-indicators">
+						<button
+							type="button"
+							data-bs-target="#testimonialCarousel"
+							data-bs-slide-to="0"
+							class="active"
+							aria-current="true"
+							aria-label="Slide 1"
+						></button>
+						<button
+							type="button"
+							data-bs-target="#testimonialCarousel"
+							data-bs-slide-to="1"
+							aria-label="Slide 2"
+						></button>
+						<button
+							type="button"
+							data-bs-target="#testimonialCarousel"
+							data-bs-slide-to="2"
+							aria-label="Slide 3"
+						></button>
+					</div>
+
+					<!-- Carousel Inner Content -->
+					<div class="carousel-inner">
+						<!-- Testimonial 1 (Active) -->
+						<div class="carousel-item active">
+							<div class="testimonial-card">
+								<i class="fas fa-quote-left testimonial-quote-icon"></i>
+								<img
+									src="./assets/profile.jpeg"
+									class="testimonial-img"
+									alt="Client 1"
+								/>
+								<p class="testimonial-text">
+									"Sanskriti is an incredibly talented and dedicated developer.
+									She delivered a product that exceeded our expectations on
+									every level. A true professional and a pleasure to work with."
+								</p>
+								<h5 class="testimonial-author">Jane Doe</h5>
+								<p class="testimonial-role">CEO, Tech Innovators</p>
+							</div>
+						</div>
+
+						<!-- Testimonial 2 -->
+						<div class="carousel-item">
+							<div class="testimonial-card">
+								<i class="fas fa-quote-left testimonial-quote-icon"></i>
+								<img
+									src="./assets/profile.jpeg"
+									class="testimonial-img"
+									alt="Client 2"
+								/>
+								<p class="testimonial-text">
+									"Working with Sanskriti was a game-changer for our project.
+									Her attention to detail and creative problem-solving skills
+									are second to none. Highly recommended!"
+								</p>
+								<h5 class="testimonial-author">John Smith</h5>
+								<p class="testimonial-role">
+									Marketing Director, Creative Solutions
+								</p>
+							</div>
+						</div>
+
+						<!-- Testimonial 3 -->
+						<div class="carousel-item">
+							<div class="testimonial-card">
+								<i class="fas fa-quote-left testimonial-quote-icon"></i>
+								<img
+									src="./assets/profile.jpeg"
+									class="testimonial-img"
+									alt="Client 3"
+								/>
+								<p class="testimonial-text">
+									"The entire process was seamless from start to finish. She
+									understood our vision perfectly and brought it to life with a
+									stunning, functional design. We couldn't be happier with the
+									result."
+								</p>
+								<h5 class="testimonial-author">Emily White</h5>
+								<p class="testimonial-role">Founder, Startup Hub</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Me -->
+		<section id="contact-me" class="contact-section-purple">
+			<div class="container">
+				<!-- Header -->
+				<div class="row text-center">
+					<div class="col-12">
+						<p class="section-subtitle fs-1">Contact</p>
+						<h2 class="section-title">Get In Touch</h2>
+						<p class="lead">
+							Have a project in mind or just want to say hello? Feel free to
+							reach out. I'm always open to discussing new ideas and
+							opportunities.
+						</p>
+					</div>
+				</div>
+
+				<!-- Contact Form & Info -->
+				<div class="row align-items-stretch g-4">
+					<!-- Contact Form -->
+					<div class="col-lg-7">
+						<div class="contact-form p-4 h-100">
+							<form action="#" method="POST">
+								<div class="row g-3">
+									<div class="col-md-6 form-floating mb-3">
+										<input
+											type="text"
+											class="form-control"
+											id="floatingName"
+											placeholder="Your Name"
+											required
+										/>
+									</div>
+									<div class="col-md-6 form-floating mb-3">
+										<input
+											type="email"
+											class="form-control"
+											id="floatingEmail"
+											placeholder="Your Email"
+											required
+										/>
+									</div>
+									<div class="col-12 form-floating mb-3">
+										<input
+											type="text"
+											class="form-control"
+											id="floatingSubject"
+											placeholder="Subject"
+										/>
+									</div>
+									<div class="col-12 form-floating mb-3">
+										<textarea
+											class="form-control"
+											placeholder="Leave a message here"
+											id="floatingTextarea"
+											style="height: 150px"
+											required
+										></textarea>
+									</div>
+									<div class="col-12">
+										<button type="submit" class="btn btn-purple">
+											Send Message
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+
+					<!-- Contact Info -->
+					<div class="col-lg-5">
+						<div class="contact-info-box">
+							<div class="contact-info-item">
+								<div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+								<div>
+									<h5>Location</h5>
+									<p>Kanpur, India</p>
+								</div>
+							</div>
+							<div class="contact-info-item">
+								<div class="icon"><i class="fas fa-envelope"></i></div>
+								<div>
+									<h5>Email</h5>
+									<p>sanskriti0409@gmail.com</p>
+								</div>
+							</div>
+							<div class="contact-info-item">
+								<div class="icon"><i class="fas fa-phone"></i></div>
+								<div>
+									<h5>Call</h5>
+									<p>+91 12345 67890</p>
+								</div>
+							</div>
+							<div class="contact-info-item">
+								<div class="icon"><i class="fas fa-globe"></i></div>
+								<div>
+									<h5>Availability</h5>
+									<p>Available for freelance work</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<section id="end" class="gradient-background">
+			<div class="container">
+				<footer
+					class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4"
+				>
+					<div class="col-md-4 d-flex align-items-center">
+						<img src="./assets/name.png" />
+						<p>© 2025 Sanskriti, Inc. All Rights Reserved.</p>
+					</div>
+					<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+						<li>
+							<a href="https://www.instagram.com/sanskriti._4/"
+								><img src="./assets/instagram.png"
+							/></a>
+						</li>
+						<li>
+							<a href="https://linkedin.com/in/sanskriti-gupta-58a677274/"
+								><img src="./assets/linkedin.png"
+							/></a>
+						</li>
+						<li>
+							<a href="https://github.com/sanskriti49/"
+								><img src="./assets/github-sign.png"
+							/></a>
+						</li>
+					</ul>
+				</footer>
+			</div>
+		</section>
+
+		<!-- JS -->
+		<script>
+			function showNav() {
+				document.querySelector(".res-nav").style.display = "flex";
+			}
+			function hideNav() {
+				document.querySelector(".res-nav").style.display = "none";
+			}
+		</script>
+		<script
+			src="https://kit.fontawesome.com/96684d9c2d.js"
+			crossorigin="anonymous"
+		></script>
+		<!-- Bootstrap 5 JS Bundle (includes Popper) -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>
