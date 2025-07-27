@@ -148,6 +148,155 @@ nav ul li a::after {
 nav ul li a:hover::after {
 	width: 100%;
 }
+nav ul li a.btn-purple:hover {
+	background: transparent; /* Make background disappear on hover */
+	color: #fff; /* Keep the text white */
+	outline: 2px solid #8110b6; /* Add a purple outline to retain the button shape */
+}
+/* Add this to your existing CSS */
+
+nav ul li:last-child a::after {
+	display: none;
+}
+/* 
+  IMPORTANT: This assumes your button class looks something like this. 
+  You don't need to add this if it's already in your CSS.
+  This is just for context.
+*/
+.btn-purple {
+	background: #8110b6;
+	padding: 8px 16px;
+	border-radius: 5px;
+}
+/* =================================
+   NEW Education Section Styles
+   ================================= */
+#education {
+	/* bg-light from bootstrap will handle the background */
+	color: #333; /* Darker text for better readability on light bg */
+}
+
+/* Makes the whole card a clickable link without the default blue underline */
+.education-entry-link {
+	text-decoration: none;
+	color: inherit;
+	display: block; /* Ensures the link takes up the full space of the card */
+}
+
+.education-entry {
+	display: flex;
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+	transition: all 0.3s ease-in-out;
+	overflow: hidden; /* Important for the border-radius on children */
+	margin-bottom: 2rem;
+}
+
+.education-entry:hover {
+	transform: translateY(-8px) scale(1.02);
+	box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+.education-logo {
+	flex-shrink: 0;
+	width: 150px;
+	background-color: #f8f9fa;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+}
+
+.university-logo-img {
+	max-width: 100%;
+	height: auto;
+	object-fit: contain;
+}
+
+/* Fallback styles if you use the icon instead of an image */
+.education-logo .fa-university {
+	font-size: 4rem;
+	color: #8110b6;
+}
+
+.education-content {
+	padding: 1.5rem 2rem;
+	flex-grow: 1;
+}
+
+.education-degree {
+	font-weight: 700;
+	font-size: 1.4rem;
+	color: #8110b6; /* Purple to match your theme */
+	margin-bottom: 0.25rem;
+}
+
+.education-university {
+	font-size: 1.1rem;
+	font-weight: 500;
+	color: #555;
+	margin-bottom: 1rem;
+}
+
+.education-dates {
+	font-weight: 400;
+	color: #777;
+	font-style: italic;
+}
+
+.education-stats {
+	font-size: 1rem;
+	color: #333;
+	background: #e9ecef;
+	display: inline-block;
+	padding: 0.3rem 0.8rem;
+	border-radius: 20px;
+	margin-bottom: 1.25rem;
+}
+
+.coursework-title {
+	font-weight: 600;
+	font-size: 1.1rem;
+	margin-bottom: 0.75rem;
+	color: #444;
+}
+
+.coursework-list {
+	list-style: none;
+	padding-left: 0;
+	margin-bottom: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+.me {
+	width: 10px;
+	height: 10px;
+}
+
+.coursework-list li {
+	font-size: 0.9rem;
+	background: rgba(129, 16, 182, 0.1); /* Light purple background */
+	color: #8110b6;
+	padding: 0.4rem 0.8rem;
+	border-radius: 8px;
+	font-weight: 500;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+	.education-entry {
+		flex-direction: column;
+	}
+	.education-logo {
+		width: 100%;
+		height: 120px; /* Give it a fixed height */
+	}
+	.education-content {
+		padding: 1.5rem;
+	}
+}
 
 p {
 	font-family: sans-serif;

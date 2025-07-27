@@ -1,489 +1,1067 @@
 <!DOCTYPE html>
-<html lang="en">
-	<!-- HEAD PART -->
+<html lang="en" data-bs-theme="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>My Portfolio</title>
-
-		<!-- Bootstrap 5 CSS -->
+		<title>Sanskriti Gupta | Web Developer Portfolio</title>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 			rel="stylesheet"
+			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+			crossorigin="anonymous"
 		/>
-		<!-- Font Awesome -->
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+			integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
 		/>
-
-		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
 			rel="stylesheet"
 		/>
+		<style>
+			:root {
+				--primary-purple: #a370f7; /* Brighter purple */
+				--secondary-purple: #7b2cbf; /* Richer, darker purple for gradients */
+				--accent-cyan: #00f5d4; /* New vibrant accent color */
+				--dark-bg: #10101a; /* Slightly deeper black */
+				--card-bg: #1a1a2e; /* Card background */
+				--light-text: #f0f0f0;
+				--gray-text: #a0a0c0; /* Softer gray */
+				--border-color: rgba(255, 255, 255, 0.1);
+			}
+			/* --- BASE & GENERAL STYLING --- */
+			html {
+				scroll-behavior: smooth;
+			}
+			body {
+				font-family: "Poppins", sans-serif;
+				background-color: var(--dark-bg);
+				color: var(--light-text);
+			}
+			h1,
+			h2,
+			h3,
+			h4,
+			.navbar-brand,
+			.section-title {
+				font-family: "Playfair Display", serif;
+			}
+			.section-padding {
+				padding: 100px 0;
+			}
 
-		<!-- Custom CSS -->
-		<link rel="stylesheet" href="./style.css" />
+			@keyframes gradient-animation {
+				0% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+				100% {
+					background-position: 0% 50%;
+				}
+			}
+			.fade-in-up {
+				opacity: 0;
+				transform: translateY(30px);
+				transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+			}
+			.fade-in-up.is-visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+			.gradient-background {
+				background: linear-gradient(
+					300deg,
+					#000,
+					var(--secondary-purple),
+					#131842
+				);
+				background-size: 180% 180%;
+				animation: gradient-animation 18s ease infinite;
+			}
+			.section-title {
+				font-size: 2.8rem;
+				font-weight: 700;
+				margin-bottom: 1rem;
+			}
+			.section-subtitle {
+				color: var(--accent-cyan);
+				margin-bottom: 3rem;
+				font-size: 1rem;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+			}
+			.btn-purple {
+				background: linear-gradient(
+					45deg,
+					var(--primary-purple),
+					var(--secondary-purple)
+				);
+				border: none;
+				color: #fff;
+				padding: 12px 24px;
+				font-weight: 600;
+				border-radius: 50px;
+				transition: all 0.3s ease;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+			}
+			.btn-purple:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 8px 25px rgba(163, 112, 247, 0.4);
+				color: #fff;
+			}
+
+			/* --- NAVIGATION BAR --- */
+			.navbar {
+				background-color: rgba(16, 16, 26, 0.75);
+				backdrop-filter: blur(12px);
+				-webkit-backdrop-filter: blur(12px);
+				border-bottom: 1px solid var(--border-color);
+			}
+			.nav-link {
+				color: var(--light-text) !important;
+				font-weight: 500;
+				position: relative;
+				padding-bottom: 8px;
+				transition: color 0.3s ease;
+			}
+			.nav-link:hover {
+				color: var(--primary-purple) !important;
+			}
+			.nav-link::after {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 0;
+				height: 2px;
+				background: linear-gradient(
+					90deg,
+					var(--primary-purple),
+					var(--accent-cyan)
+				);
+				transition: width 0.3s ease-in-out;
+			}
+			.nav-link.active::after,
+			.nav-link:hover::after {
+				width: 60%;
+			}
+
+			/* --- HERO SECTION --- */
+			#hero {
+				padding-top: 0;
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+				position: relative;
+				color: #fff;
+			}
+			#hero::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: rgba(0, 0, 0, 0.5);
+				z-index: 1;
+			}
+			#hero .container {
+				position: relative;
+				z-index: 2;
+			}
+			.hero-text h1 {
+				font-size: clamp(2.5rem, 5vw, 4rem);
+				font-weight: 700;
+			}
+			.hero-text .name {
+				color: var(--primary-purple);
+				font-weight: 700;
+			}
+			.hero-text p {
+				font-size: 1.25rem;
+				color: var(--gray-text);
+				max-width: 550px;
+			}
+			.hero-image img {
+				max-width: 400px;
+				width: 100%;
+				filter: drop-shadow(0 0 25px rgba(163, 112, 247, 0.4));
+				animation: float 6s ease-in-out infinite;
+			}
+			@keyframes float {
+				0% {
+					transform: translateY(0px);
+				}
+				50% {
+					transform: translateY(-20px);
+				}
+				100% {
+					transform: translateY(0px);
+				}
+			}
+
+			/* --- 3D TILT EFFECT FOR CARDS --- */
+			.tilt-card-container {
+				perspective: 1000px; /* The 3D space for the card */
+			}
+			.service-card,
+			.project-card {
+				transform-style: preserve-3d;
+				transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+			}
+			.service-card:hover,
+			.project-card:hover {
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+			}
+
+			/* --- SECTIONS (About, Services, Portfolio etc.) --- */
+			#about .about-img {
+				width: 100%;
+				max-width: 350px;
+				border-radius: 15px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+			}
+			#about .skills-list li {
+				background-color: var(--card-bg);
+				padding: 8px 15px;
+				margin: 5px;
+				border-radius: 20px;
+				font-size: 0.9rem;
+				display: inline-flex;
+				align-items: center;
+				border: 1px solid var(--border-color);
+				transition: all 0.3s ease;
+			}
+			#about .skills-list li:hover {
+				border-color: var(--primary-purple);
+				color: var(--primary-purple);
+				transform: translateY(-2px);
+			}
+			#about .skills-list i {
+				color: var(--accent-cyan);
+				margin-right: 8px;
+			}
+
+			#services,
+			#portfolio {
+				background-color: var(--card-bg);
+			}
+			.service-card {
+				background-color: var(--dark-bg);
+				border: 1px solid var(--border-color);
+				padding: 2.5rem 2rem;
+				border-radius: 15px;
+				text-align: center;
+			}
+			.project-card {
+				background-color: var(--dark-bg);
+				border: 1px solid var(--border-color);
+				padding: 0;
+				text-align: left;
+				border-radius: 15px;
+			}
+			.service-icon {
+				font-size: 2.5rem;
+				color: var(--primary-purple);
+				margin-bottom: 1.5rem;
+			}
+			.service-card h5 {
+				font-family: "Poppins", sans-serif;
+				font-weight: 600;
+			}
+
+			.project-card .card-body {
+				padding: 1.5rem;
+			}
+			.project-card .card-img-top {
+				aspect-ratio: 16 / 10;
+				object-fit: cover;
+				border-top-left-radius: 15px;
+				border-top-right-radius: 15px;
+			}
+			.project-card .card-footer {
+				background-color: transparent;
+				border-top: 1px solid var(--border-color);
+				padding: 1rem 1.5rem;
+			}
+			.tech-tags {
+				padding: 0;
+				margin: 0 0 1rem 0;
+				list-style: none;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+			}
+			.tech-tags li {
+				font-size: 0.75rem;
+				font-weight: 500;
+				background-color: rgba(163, 112, 247, 0.1);
+				color: var(--primary-purple);
+				padding: 0.25rem 0.6rem;
+				border-radius: 20px;
+			}
+			.btn-outline-accent {
+				color: var(--accent-cyan);
+				border-color: var(--accent-cyan);
+			}
+			.btn-outline-accent:hover {
+				color: var(--dark-bg);
+				background-color: var(--accent-cyan);
+				border-color: var(--accent-cyan);
+			}
+
+			.timeline {
+				position: relative;
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+			.timeline::after {
+				content: "";
+				position: absolute;
+				width: 4px;
+				background-color: var(--card-bg);
+				top: 0;
+				bottom: 0;
+				left: 50%;
+				margin-left: -2px;
+			}
+			.timeline-container {
+				padding: 10px 40px;
+				position: relative;
+				background-color: inherit;
+				width: 50%;
+			}
+			.timeline-container.left {
+				left: 0;
+			}
+			.timeline-container.right {
+				left: 50%;
+			}
+			.timeline-container::after {
+				content: "";
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				right: -10px;
+				background-color: var(--accent-cyan);
+				border: 4px solid var(--primary-purple);
+				top: 25px;
+				border-radius: 50%;
+				z-index: 1;
+			}
+			.timeline-container.right::after {
+				left: -10px;
+			}
+			.timeline-content {
+				padding: 2rem;
+				background-color: var(--card-bg);
+				position: relative;
+				border-radius: 15px;
+				border: 1px solid var(--border-color);
+			}
+			@media (max-width: 768px) {
+				.timeline::after {
+					left: 20px;
+				}
+				.timeline-container {
+					width: 100%;
+					padding-left: 60px;
+					padding-right: 15px;
+				}
+				.timeline-container.right {
+					left: 0%;
+				}
+				.timeline-container.left::after,
+				.timeline-container.right::after {
+					left: 10px;
+				}
+			}
+
+			footer {
+				padding: 2rem 0;
+				border-top: 1px solid var(--border-color);
+			}
+			.social-icons a {
+				color: var(--gray-text);
+				font-size: 1.5rem;
+				margin-left: 1.5rem;
+				transition: all 0.3s ease;
+			}
+			.social-icons a:hover {
+				color: var(--primary-purple);
+				transform: translateY(-3px);
+			}
+
+			#scrollTopBtn {
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				display: none;
+				width: 45px;
+				height: 45px;
+				border-radius: 50%;
+				background: linear-gradient(
+					45deg,
+					var(--primary-purple),
+					var(--secondary-purple)
+				);
+				color: white;
+				border: none;
+				z-index: 1000;
+				font-size: 1.2rem;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+				transition: opacity 0.3s, transform 0.3s;
+				opacity: 0;
+				transform: translateY(20px);
+			}
+			#scrollTopBtn.show {
+				display: grid;
+				place-items: center;
+				opacity: 1;
+				transform: translateY(0);
+			}
+		</style>
 	</head>
 
-	<body>
-		<!-- Header -->
-		<div id="header">
-			<div class="container">
-				<nav>
-					<a href="#"
-						><img src="/assets/name.png" class="logo-nav" alt="Logo"
+	<body
+		data-bs-spy="scroll"
+		data-bs-target="#navbarNav"
+		data-bs-offset="100"
+		tabindex="0"
+	>
+		<header>
+			<nav class="navbar navbar-expand-lg fixed-top">
+				<div class="container">
+					<a class="navbar-brand" href="#"
+						><img src="./assets/name.png" alt="Sanskriti Logo" height="40"
 					/></a>
-					<ul>
-						<li><a href="#header">Home</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#services">Services</a></li>
-						<li><a href="#portfolio">Portfolio</a></li>
-						<li><a href="#contact">Contact</a></li>
-						<li>
-							<a
-								href="./assets/resume.pdf"
-								target="_blank"
-								class="btn-sm btn-purple"
-								>Resume</a
-							>
-						</li>
-					</ul>
-				</nav>
-			</div>
-		</div>
-
-		<!-- Responsive Navigation -->
-		<div class="res-nav">
-			<nav>
-				<div class="contents">
-					<button onclick="hideNav()" class="btn btn-purple">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							height="26px"
-							viewBox="0 -960 960 960"
-							width="26px"
-							fill="#fff"
-						>
-							<path
-								d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
-							/>
-						</svg>
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarNav"
+						aria-controls="navbarNav"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<span class="navbar-toggler-icon"></span>
 					</button>
-					<a href="#about-me" class="res-nav-text">About Me</a>
-					<a href="#my-projects" class="res-nav-text">My Projects</a>
-					<a href="#testimonials" class="res-nav-text">Testimonials</a>
-					<a href="#contact-me" class="res-nav-text">Contact Me</a>
+					<div class="collapse navbar-collapse" id="navbarNav">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item">
+								<a class="nav-link" href="#hero">Home</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#about">About</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#services">Services</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#education">Journey</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#portfolio">Projects</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#contact">Contact</a>
+							</li>
+						</ul>
+						<a
+							href="./assets/resume.pdf"
+							target="_blank"
+							class="btn btn-purple ms-lg-3 d-none d-lg-inline-block"
+							>Resume</a
+						>
+					</div>
 				</div>
 			</nav>
-		</div>
+		</header>
 
-		<!-- Hero Section -->
-		<section id="hero" class="gradient-background">
-			<div class="container col-xxl-8 px-0 py-5">
-				<div class="row flex-lg-row-reverse align-items-center g-5 py-5 mx-3">
-					<div class="col-10 col-sm-8 col-lg-6">
-						<img
-							src="./assets/picmix.com_1915138.png"
-							class="img-fluid butterfly"
-							alt="Profile image"
-						/>
-					</div>
-					<div class="col-lg-6">
-						<h1 class="intro">
-							Hi, I'm <span class="name">Sanskriti</span> From Kanpur.
-						</h1>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- About Section -->
-		<section id="about-me">
-			<div class="container mt-5">
-				<h1 class="head">About Me.</h1>
-				<img src="./assets/girl.jpeg" alt="my image" />
-				<p class="hello">Hello.</p>
-				<p>
-					My name is Sanskriti Gupta. I'm a Web Developer currently contributing
-					in bettering the world, I ❤️ coffee and brew my own beers.
-				</p>
-				<p>Currently pursuing a degree.</p>
-			</div>
-		</section>
-
-		<!-- Projects -->
-		<section id="my-projects" class="py-5 bg-dark text-light">
-			<div class="container">
-				<h2 class="text-center mb-5 fw-bold display-5">My Projects</h2>
-				<div class="row g-4 justify-content-center">
-					<!-- Project Card -->
-					<div class="col-md-6 col-lg-4">
-						<div class="card project-card h-100 shadow-lg border-0">
+		<main>
+			<section id="hero" class="gradient-background">
+				<div class="container section-padding">
+					<div class="row align-items-center g-5 flex-lg-row-reverse">
+						<div class="col-lg-6 text-center hero-image">
 							<img
-								src="./assets/cinetrack.PNG"
-								class="card-img-top"
-								alt="CineTrack Screenshot"
+								src="./assets/picmix.com_1915138.png"
+								class="img-fluid"
+								alt="Profile image"
 							/>
-							<div class="card-body">
-								<h5 class="card-title fw-semibold">CineTrack</h5>
-								<p class="card-text">
-									A dynamic movie tracking app with a slick UI, using JavaScript
-									and an external movie API.
-								</p>
-							</div>
-							<div class="card-footer bg-transparent border-0">
-								<a
-									href="https://cinetrackmovie.netlify.app/"
-									class="btn btn-purple w-100"
-									target="_blank"
-									>Visit Site</a
-								>
-							</div>
 						</div>
-					</div>
-
-					<!-- Memory Flip Game -->
-					<div class="col-md-6 col-lg-4">
-						<div class="card project-card h-100 shadow-lg border-0">
-							<img
-								src="./assets/memory-card.PNG"
-								class="card-img-top"
-								alt="Memory Flip Game Screenshot"
-							/>
-							<div class="card-body">
-								<h5 class="card-title fw-semibold">Memory Flip Game</h5>
-								<p class="card-text">
-									Test your memory in this fun card-matching game with smooth
-									animations and responsive UI.
-								</p>
-							</div>
-							<div class="card-footer bg-transparent border-0">
-								<a
-									href="https://sanskriti49.github.io/matching-cards-memory-game/"
-									class="btn btn-purple w-100"
-									target="_blank"
-									>Play Now</a
-								>
-							</div>
-						</div>
-					</div>
-
-					<!-- Pizzalicious -->
-					<div class="col-md-6 col-lg-4">
-						<div class="card project-card h-100 shadow-lg border-0">
-							<img
-								src="./assets/pizzalicious.PNG"
-								class="card-img-top"
-								alt="Pizzalicious Screenshot"
-							/>
-							<div class="card-body">
-								<h5 class="card-title fw-semibold">Pizzalicious</h5>
-								<p class="card-text">
-									A fun, interactive pizza-themed site with engaging UI and
-									custom CSS animations.
-								</p>
-							</div>
-							<div class="card-footer bg-transparent border-0">
-								<a
-									href="https://pizzaliciousss.netlify.app"
-									class="btn btn-purple w-100"
-									target="_blank"
-									>Explore Site</a
-								>
-							</div>
-						</div>
-					</div>
-
-					<!-- Simon Game -->
-					<div class="col-md-6 col-lg-4">
-						<div class="card project-card h-100 shadow-lg border-0">
-							<img
-								src="./assets/Capture3.PNG"
-								class="card-img-top"
-								alt="Simon Game Screenshot"
-							/>
-							<div class="card-body">
-								<h5 class="card-title fw-semibold">Simon Memory Game</h5>
-								<p class="card-text">
-									Classic memory challenge where you repeat sequences. Built
-									using HTML, CSS & JavaScript.
-								</p>
-							</div>
-							<div class="card-footer bg-transparent border-0">
-								<a
-									href="https://sanskriti49.github.io/Simon-Game/"
-									class="btn btn-purple w-100"
-									target="_blank"
-									>Try It Out</a
+						<div class="col-lg-6 hero-text">
+							<h1>Hi, I'm <span class="name">Sanskriti Gupta</span></h1>
+							<p class="lead my-4">
+								A passionate Full Stack Developer from Kanpur, crafting
+								beautiful and functional digital experiences.
+							</p>
+							<div class="d-flex gap-3 flex-wrap">
+								<a href="#contact" class="btn btn-purple btn-lg">Get In Touch</a
+								><a href="#portfolio" class="btn btn-outline-light btn-lg"
+									>View My Work</a
 								>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
 
-		<!-- Testimonials -->
-
-		<section id="testimonials" class="testimonials-section-purple">
-			<div class="container py-5">
-				<!-- Section Header -->
-				<div class="row text-center mb-5">
-					<div class="col-12">
-						<p class="section-subtitle">Testimonials</p>
-						<h2 class="section-title">What My Clients Say</h2>
+			<section id="about" class="section-padding">
+				<div class="container">
+					<div class="text-center fade-in-up">
+						<p class="section-subtitle">Introduction</p>
+						<h2 class="section-title">About Me</h2>
 					</div>
-				</div>
-
-				<!-- Carousel -->
-				<div
-					id="testimonialCarousel"
-					class="carousel slide"
-					data-bs-ride="carousel"
-					data-bs-interval="5000"
-				>
-					<!-- Carousel Indicators -->
-					<div class="carousel-indicators">
-						<button
-							type="button"
-							data-bs-target="#testimonialCarousel"
-							data-bs-slide-to="0"
-							class="active"
-							aria-current="true"
-							aria-label="Slide 1"
-						></button>
-						<button
-							type="button"
-							data-bs-target="#testimonialCarousel"
-							data-bs-slide-to="1"
-							aria-label="Slide 2"
-						></button>
-						<button
-							type="button"
-							data-bs-target="#testimonialCarousel"
-							data-bs-slide-to="2"
-							aria-label="Slide 3"
-						></button>
-					</div>
-
-					<!-- Carousel Inner Content -->
-					<div class="carousel-inner">
-						<!-- Testimonial 1 (Active) -->
-						<div class="carousel-item active">
-							<div class="testimonial-card">
-								<i class="fas fa-quote-left testimonial-quote-icon"></i>
-								<img
-									src="./assets/profile.jpeg"
-									class="testimonial-img"
-									alt="Client 1"
-								/>
-								<p class="testimonial-text">
-									"Sanskriti is an incredibly talented and dedicated developer.
-									She delivered a product that exceeded our expectations on
-									every level. A true professional and a pleasure to work with."
-								</p>
-								<h5 class="testimonial-author">Jane Doe</h5>
-								<p class="testimonial-role">CEO, Tech Innovators</p>
-							</div>
+					<div class="row align-items-center g-5 mt-4">
+						<div
+							class="col-lg-5 text-center text-lg-start fade-in-up"
+							style="transition-delay: 0.2s"
+						>
+							<img
+								src="./assets/girl.jpeg"
+								alt="A photo of Sanskriti"
+								class="about-img"
+							/>
 						</div>
-
-						<!-- Testimonial 2 -->
-						<div class="carousel-item">
-							<div class="testimonial-card">
-								<i class="fas fa-quote-left testimonial-quote-icon"></i>
-								<img
-									src="./assets/profile.jpeg"
-									class="testimonial-img"
-									alt="Client 2"
-								/>
-								<p class="testimonial-text">
-									"Working with Sanskriti was a game-changer for our project.
-									Her attention to detail and creative problem-solving skills
-									are second to none. Highly recommended!"
-								</p>
-								<h5 class="testimonial-author">John Smith</h5>
-								<p class="testimonial-role">
-									Marketing Director, Creative Solutions
-								</p>
-							</div>
-						</div>
-
-						<!-- Testimonial 3 -->
-						<div class="carousel-item">
-							<div class="testimonial-card">
-								<i class="fas fa-quote-left testimonial-quote-icon"></i>
-								<img
-									src="./assets/profile.jpeg"
-									class="testimonial-img"
-									alt="Client 3"
-								/>
-								<p class="testimonial-text">
-									"The entire process was seamless from start to finish. She
-									understood our vision perfectly and brought it to life with a
-									stunning, functional design. We couldn't be happier with the
-									result."
-								</p>
-								<h5 class="testimonial-author">Emily White</h5>
-								<p class="testimonial-role">Founder, Startup Hub</p>
-							</div>
+						<div class="col-lg-7 fade-in-up" style="transition-delay: 0.4s">
+							<h3 class="mb-3">Hello, I'm Sanskriti.</h3>
+							<p class="text-secondary">
+								I'm a developer passionate about building excellent software
+								that improves the lives of those around me. I thrive on
+								contributing to the world one line of code at a time. Currently
+								pursuing my degree, I love to spend my free time exploring new
+								technologies and contributing to open-source projects.
+							</p>
+							<h4 class="mt-4 mb-3">My Skills</h4>
+							<ul class="list-unstyled skills-list">
+								<li><i class="fab fa-react"></i> React.js</li>
+								<li><i class="fab fa-node-js"></i> Node.js & Express</li>
+								<li><i class="fas fa-layer-group"></i> Redux</li>
+								<li><i class="fas fa-mobile-alt"></i> Flutter</li>
+								<li><i class="fas fa-database"></i> Firebase</li>
+								<li><i class="fab fa-js-square"></i> JavaScript (ES6+)</li>
+								<li><i class="fab fa-html5"></i> HTML & CSS</li>
+								<li><i class="fab fa-bootstrap"></i> Bootstrap</li>
+								<li><i class="fab fa-java"></i> Java</li>
+								<li><i class="fab fa-python"></i> Python</li>
+								<li><i class="fas fa-brain"></i> Machine Learning</li>
+								<li><i class="fab fa-git-alt"></i> Git & GitHub</li>
+							</ul>
 						</div>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
 
-		<!-- Contact Me -->
-		<section id="contact-me" class="contact-section-purple">
-			<div class="container">
-				<!-- Header -->
-				<div class="row text-center">
-					<div class="col-12">
-						<p class="section-subtitle fs-1">Contact</p>
-						<h2 class="section-title">Get In Touch</h2>
-						<p class="lead">
-							Have a project in mind or just want to say hello? Feel free to
-							reach out. I'm always open to discussing new ideas and
-							opportunities.
-						</p>
+			<section id="services" class="section-padding">
+				<div class="container">
+					<div class="text-center fade-in-up">
+						<p class="section-subtitle">What I Offer</p>
+						<h2 class="section-title">My Services</h2>
 					</div>
-				</div>
-
-				<!-- Contact Form & Info -->
-				<div class="row align-items-stretch g-4">
-					<!-- Contact Form -->
-					<div class="col-lg-7">
-						<div class="contact-form p-4 h-100">
-							<form action="#" method="POST">
-								<div class="row g-3">
-									<div class="col-md-6 form-floating mb-3">
-										<input
-											type="text"
-											class="form-control"
-											id="floatingName"
-											placeholder="Your Name"
-											required
-										/>
-									</div>
-									<div class="col-md-6 form-floating mb-3">
-										<input
-											type="email"
-											class="form-control"
-											id="floatingEmail"
-											placeholder="Your Email"
-											required
-										/>
-									</div>
-									<div class="col-12 form-floating mb-3">
-										<input
-											type="text"
-											class="form-control"
-											id="floatingSubject"
-											placeholder="Subject"
-										/>
-									</div>
-									<div class="col-12 form-floating mb-3">
-										<textarea
-											class="form-control"
-											placeholder="Leave a message here"
-											id="floatingTextarea"
-											style="height: 150px"
-											required
-										></textarea>
-									</div>
-									<div class="col-12">
-										<button type="submit" class="btn btn-purple">
-											Send Message
-										</button>
-									</div>
+					<div class="row g-4 mt-4">
+						<div
+							class="col-md-6 col-lg-3 d-flex align-items-stretch fade-in-up tilt-card-container"
+							style="transition-delay: 0.1s"
+						>
+							<div class="service-card w-100">
+								<div class="service-icon"><i class="fas fa-code"></i></div>
+								<h5>Frontend Development</h5>
+								<p class="text-secondary">
+									Creating responsive, interactive, and user-friendly interfaces
+									from design mockups.
+								</p>
+							</div>
+						</div>
+						<div
+							class="col-md-6 col-lg-3 d-flex align-items-stretch fade-in-up tilt-card-container"
+							style="transition-delay: 0.2s"
+						>
+							<div class="service-card w-100">
+								<div class="service-icon"><i class="fas fa-cogs"></i></div>
+								<h5>Backend Development</h5>
+								<p class="text-secondary">
+									Building robust server-side logic, databases, and APIs to
+									power applications.
+								</p>
+							</div>
+						</div>
+						<div
+							class="col-md-6 col-lg-3 d-flex align-items-stretch fade-in-up tilt-card-container"
+							style="transition-delay: 0.3s"
+						>
+							<div class="service-card w-100">
+								<div class="service-icon">
+									<i class="fas fa-mobile-alt"></i>
 								</div>
-							</form>
+								<h5>Mobile App Development</h5>
+								<p class="text-secondary">
+									Developing cross-platform mobile apps for iOS and Android
+									using modern frameworks like Flutter.
+								</p>
+							</div>
+						</div>
+						<div
+							class="col-md-6 col-lg-3 d-flex align-items-stretch fade-in-up tilt-card-container"
+							style="transition-delay: 0.4s"
+						>
+							<div class="service-card w-100">
+								<div class="service-icon"><i class="fas fa-life-ring"></i></div>
+								<h5>Website Maintenance</h5>
+								<p class="text-secondary">
+									Providing ongoing support, updates, and bug fixes for existing
+									web and mobile applications.
+								</p>
+							</div>
 						</div>
 					</div>
+				</div>
+			</section>
 
-					<!-- Contact Info -->
-					<div class="col-lg-5">
-						<div class="contact-info-box">
+			<section id="education" class="section-padding">
+				<div class="container">
+					<div class="text-center fade-in-up">
+						<p class="section-subtitle">Milestones</p>
+						<h2 class="section-title">My Journey</h2>
+					</div>
+					<div class="timeline mt-5">
+						<div class="timeline-container left fade-in-up">
+							<div class="timeline-content">
+								<h5>Bachelor of Technology in Computer Science</h5>
+								<p class="experience-meta">
+									VIT Bhopal University <span>| Expected May 2027</span>
+								</p>
+								<p class="text-secondary mb-0">
+									Cumulative GPA: 8.5 | Coursework: DSA, OS, DBMS.
+								</p>
+							</div>
+						</div>
+						<div class="timeline-container right fade-in-up">
+							<div class="timeline-content">
+								<h5>Core Member</h5>
+								<p class="experience-meta">
+									Google Developer Club <span>| Dec 2024 – Present</span>
+								</p>
+								<p class="text-secondary mb-0">
+									Organizing tech workshops on Web Dev & AI and collaborating on
+									club projects.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="portfolio" class="section-padding">
+				<div class="container">
+					<div class="text-center fade-in-up">
+						<p class="section-subtitle">My Work</p>
+						<h2 class="section-title">Recent Projects</h2>
+					</div>
+					<div class="row g-4 justify-content-center mt-4">
+						<div
+							class="col-md-6 col-lg-4 d-flex align-items-stretch fade-in-up tilt-card-container"
+						>
+							<div class="project-card h-100">
+								<img
+									src="./assets/cinetrack.PNG"
+									class="card-img-top"
+									alt="BrowseBox Screenshot"
+								/>
+								<div class="card-body d-flex flex-column">
+									<h5 class="card-title">BrowseBox</h5>
+									<p class="card-text flex-grow-1 text-secondary">
+										Dynamic movie discovery platform with search, ratings, and
+										watchlist features, built with a seamless React UI.
+									</p>
+									<ul class="tech-tags">
+										<li>React</li>
+										<li>API</li>
+										<li>CSS</li>
+									</ul>
+								</div>
+								<div class="card-footer d-flex gap-2">
+									<a
+										href="https://cinetrackmovie.netlify.app/"
+										class="btn btn-purple w-100"
+										target="_blank"
+										>Live Site</a
+									>
+								</div>
+							</div>
+						</div>
+						<div
+							class="col-md-6 col-lg-4 d-flex align-items-stretch fade-in-up tilt-card-container"
+						>
+							<div class="project-card h-100">
+								<img
+									src="./assets/service.png"
+									class="card-img-top"
+									alt="Service Provider App"
+								/>
+								<div class="card-body d-flex flex-column">
+									<h5 class="card-title">
+										Service Provider App
+										<span class="badge bg-secondary ms-2">In Progress</span>
+									</h5>
+									<p class="card-text flex-grow-1 text-secondary">
+										A marketplace for users to book and rate local service
+										providers, featuring authentication, dashboards, and
+										real-time bookings.
+									</p>
+									<ul class="tech-tags">
+										<li>React</li>
+										<li>Node.js</li>
+										<li>MongoDB</li>
+									</ul>
+								</div>
+								<div class="card-footer d-flex gap-2">
+									<a
+										href="https://github.com/sanskriti49/service-provider"
+										class="btn btn-outline-accent w-100"
+										target="_blank"
+										>View Code</a
+									>
+								</div>
+							</div>
+						</div>
+						<div
+							class="col-md-6 col-lg-4 d-flex align-items-stretch fade-in-up tilt-card-container"
+						>
+							<div class="project-card h-100">
+								<img
+									src="./assets/dementia.gif"
+									class="card-img-top"
+									alt="Dementia Care App"
+								/>
+								<div class="card-body d-flex flex-column">
+									<h5 class="card-title">
+										Dementia Care App
+										<span class="badge bg-secondary ms-2">In Progress</span>
+									</h5>
+									<p class="card-text flex-grow-1 text-secondary">
+										A Flutter-based mobile app with a voice-enabled memory
+										assistant, reminders, and emergency support features using
+										Firebase.
+									</p>
+									<ul class="tech-tags">
+										<li>Flutter</li>
+										<li>Firebase</li>
+										<li>Cloud API</li>
+									</ul>
+								</div>
+								<div class="card-footer d-flex gap-2">
+									<a
+										href="https://github.com/sanskriti49/dementia-app"
+										class="btn btn-outline-accent w-100"
+										target="_blank"
+										>View Code</a
+									>
+								</div>
+							</div>
+						</div>
+						<div
+							class="col-md-6 col-lg-4 d-flex align-items-stretch fade-in-up tilt-card-container"
+						>
+							<div class="project-card h-100">
+								<img
+									src="./assets/weather.png"
+									class="card-img-top"
+									alt="Weather App Screenshot"
+								/>
+								<div class="card-body d-flex flex-column">
+									<h5 class="card-title">Weather App</h5>
+									<p class="card-text flex-grow-1 text-secondary">
+										A clean and simple weather application that provides
+										real-time weather data for any city using an external API.
+									</p>
+									<ul class="tech-tags">
+										<li>HTML</li>
+										<li>CSS</li>
+										<li>JavaScript</li>
+										<li>API</li>
+									</ul>
+								</div>
+								<div class="card-footer d-flex gap-2">
+									<a
+										href="https://sanskriti49.github.io/weather-app/"
+										class="btn btn-purple w-100"
+										target="_blank"
+										>Live Site</a
+									><a
+										href="https://github.com/sanskriti49/weather-app"
+										class="btn btn-outline-accent w-100"
+										target="_blank"
+										>View Code</a
+									>
+								</div>
+							</div>
+						</div>
+						<div
+							class="col-md-6 col-lg-4 d-flex align-items-stretch fade-in-up tilt-card-container"
+						>
+							<div class="project-card h-100">
+								<img
+									src="./assets/memory-card.PNG"
+									class="card-img-top"
+									alt="Memory Flip Game Screenshot"
+								/>
+								<div class="card-body d-flex flex-column">
+									<h5 class="card-title">Memory Flip Game</h5>
+									<p class="card-text flex-grow-1 text-secondary">
+										Test your memory in this fun card-matching game with smooth
+										animations and responsive UI.
+									</p>
+									<ul class="tech-tags">
+										<li>JavaScript</li>
+										<li>HTML</li>
+										<li>CSS</li>
+									</ul>
+								</div>
+								<div class="card-footer d-flex gap-2">
+									<a
+										href="https://sanskriti49.github.io/matching-cards-memory-game/"
+										class="btn btn-purple w-100"
+										target="_blank"
+										>Play Now</a
+									>
+								</div>
+							</div>
+						</div>
+						<div
+							class="col-md-6 col-lg-4 d-flex align-items-stretch fade-in-up tilt-card-container"
+						>
+							<div class="project-card h-100">
+								<img
+									src="./assets/Capture3.PNG"
+									class="card-img-top"
+									alt="Simon Game Screenshot"
+								/>
+								<div class="card-body d-flex flex-column">
+									<h5 class="card-title">Simon Memory Game</h5>
+									<p class="card-text flex-grow-1 text-secondary">
+										Classic memory challenge where you repeat sequences. Built
+										using HTML, CSS & JavaScript.
+									</p>
+									<ul class="tech-tags">
+										<li>JavaScript</li>
+										<li>jQuery</li>
+										<li>HTML</li>
+									</ul>
+								</div>
+								<div class="card-footer d-flex gap-2">
+									<a
+										href="https://sanskriti49.github.io/Simon-Game/"
+										class="btn btn-purple w-100"
+										target="_blank"
+										>Try It Out</a
+									>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="contact" class="section-padding">
+				<div class="container">
+					<div class="text-center fade-in-up">
+						<p class="section-subtitle">Let's Connect</p>
+						<h2 class="section-title">Get In Touch</h2>
+					</div>
+					<div class="row g-5 mt-4">
+						<div class="col-lg-4 fade-in-up">
 							<div class="contact-info-item">
 								<div class="icon"><i class="fas fa-map-marker-alt"></i></div>
 								<div>
 									<h5>Location</h5>
-									<p>Kanpur, India</p>
+									<p class="text-secondary">Kanpur, India</p>
 								</div>
 							</div>
 							<div class="contact-info-item">
 								<div class="icon"><i class="fas fa-envelope"></i></div>
 								<div>
 									<h5>Email</h5>
-									<p>sanskriti0409@gmail.com</p>
+									<p class="text-secondary">sanskriti0409@gmail.com</p>
 								</div>
 							</div>
 							<div class="contact-info-item">
-								<div class="icon"><i class="fas fa-phone"></i></div>
-								<div>
-									<h5>Call</h5>
-									<p>+91 12345 67890</p>
-								</div>
-							</div>
-							<div class="contact-info-item">
-								<div class="icon"><i class="fas fa-globe"></i></div>
+								<div class="icon"><i class="fas fa-briefcase"></i></div>
 								<div>
 									<h5>Availability</h5>
-									<p>Available for freelance work</p>
+									<p class="text-secondary">Open to freelance projects</p>
 								</div>
+							</div>
+						</div>
+						<div class="col-lg-8 fade-in-up" style="transition-delay: 0.2s">
+							<div class="contact-form">
+								<form action="#" method="POST">
+									<div class="row g-3">
+										<div class="col-md-6 form-floating">
+											<input
+												type="text"
+												class="form-control"
+												id="floatingName"
+												placeholder="Your Name"
+												required
+											/><label for="floatingName">Your Name</label>
+										</div>
+										<div class="col-md-6 form-floating">
+											<input
+												type="email"
+												class="form-control"
+												id="floatingEmail"
+												placeholder="Your Email"
+												required
+											/><label for="floatingEmail">Your Email</label>
+										</div>
+										<div class="col-12 form-floating">
+											<input
+												type="text"
+												class="form-control"
+												id="floatingSubject"
+												placeholder="Subject"
+											/><label for="floatingSubject">Subject</label>
+										</div>
+										<div class="col-12 form-floating">
+											<textarea
+												class="form-control"
+												placeholder="Leave a message here"
+												id="floatingTextarea"
+												style="height: 150px"
+												required
+											></textarea
+											><label for="floatingTextarea">Message</label>
+										</div>
+										<div class="col-12 text-end">
+											<button type="submit" class="btn btn-purple btn-lg">
+												Send Message
+											</button>
+										</div>
+									</div>
+								</form>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+		</main>
 
-		<!-- Footer -->
-		<section id="end" class="gradient-background">
-			<div class="container">
-				<footer
-					class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4"
-				>
-					<div class="col-md-4 d-flex align-items-center">
-						<img src="./assets/name.png" />
-						<p>© 2025 Sanskriti, Inc. All Rights Reserved.</p>
+		<footer class="gradient-background">
+			<div class="container text-center py-4">
+				<div class="row align-items-center">
+					<div class="col-lg-4 text-lg-start">
+						<img
+							src="./assets/name.png"
+							alt="Sanskriti Logo"
+							height="35"
+							style="opacity: 0.8"
+						/>
 					</div>
-					<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-						<li>
-							<a href="https://www.instagram.com/sanskriti._4/"
-								><img src="./assets/instagram.png"
-							/></a>
-						</li>
-						<li>
-							<a href="https://linkedin.com/in/sanskriti-gupta-58a677274/"
-								><img src="./assets/linkedin.png"
-							/></a>
-						</li>
-						<li>
-							<a href="https://github.com/sanskriti49/"
-								><img src="./assets/github-sign.png"
-							/></a>
-						</li>
-					</ul>
-				</footer>
+					<div class="col-lg-4 my-3 my-lg-0">
+						<p class="mb-0 text-secondary">
+							© 2025 Sanskriti Gupta. All Rights Reserved.
+						</p>
+					</div>
+					<div class="col-lg-4 text-lg-end social-icons">
+						<a
+							href="https://www.instagram.com/sanskriti._4/"
+							target="_blank"
+							aria-label="Instagram"
+							><i class="fab fa-instagram"></i></a
+						><a
+							href="https://linkedin.com/in/sanskriti-gupta-58a677274/"
+							target="_blank"
+							aria-label="LinkedIn"
+							><i class="fab fa-linkedin"></i></a
+						><a
+							href="https://github.com/sanskriti49/"
+							target="_blank"
+							aria-label="GitHub"
+							><i class="fab fa-github"></i
+						></a>
+					</div>
+				</div>
 			</div>
-		</section>
+		</footer>
 
-		<!-- JS -->
-		<script>
-			function showNav() {
-				document.querySelector(".res-nav").style.display = "flex";
-			}
-			function hideNav() {
-				document.querySelector(".res-nav").style.display = "none";
-			}
-		</script>
+		<button id="scrollTopBtn" title="Go to top">
+			<i class="fas fa-arrow-up"></i>
+		</button>
+
 		<script
-			src="https://kit.fontawesome.com/96684d9c2d.js"
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 			crossorigin="anonymous"
 		></script>
-		<!-- Bootstrap 5 JS Bundle (includes Popper) -->
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				// --- 3D Tilt Effect Logic ---
+				const tiltCards = document.querySelectorAll(".tilt-card-container");
+
+				tiltCards.forEach((cardContainer) => {
+					const card = cardContainer.querySelector(
+						".service-card, .project-card"
+					);
+					const intensity = 20; // How much the card tilts. Higher = more tilt.
+
+					cardContainer.addEventListener("mousemove", (e) => {
+						const rect = cardContainer.getBoundingClientRect();
+						const width = rect.width;
+						const height = rect.height;
+						const mouseX = e.clientX - rect.left;
+						const mouseY = e.clientY - rect.top;
+
+						const rotateX = (mouseY / height - 0.5) * -intensity;
+						const rotateY = (mouseX / width - 0.5) * intensity;
+
+						card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+					});
+
+					cardContainer.addEventListener("mouseleave", () => {
+						card.style.transform = "rotateX(0deg) rotateY(0deg)";
+					});
+				});
+
+				// --- Scroll-to-top button logic ---
+				const scrollTopBtn = document.getElementById("scrollTopBtn");
+				window.onscroll = function () {
+					if (
+						document.body.scrollTop > 100 ||
+						document.documentElement.scrollTop > 100
+					) {
+						scrollTopBtn.classList.add("show");
+					} else {
+						scrollTopBtn.classList.remove("show");
+					}
+				};
+				scrollTopBtn.onclick = () =>
+					window.scrollTo({ top: 0, behavior: "smooth" });
+
+				// --- Fade-in animation on scroll ---
+				const observer = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add("is-visible");
+							}
+						});
+					},
+					{ threshold: 0.1 }
+				);
+
+				document
+					.querySelectorAll(".fade-in-up")
+					.forEach((el) => observer.observe(el));
+			});
+		</script>
 	</body>
 </html>
